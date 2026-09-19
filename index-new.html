@@ -1,0 +1,943 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مصيفك في رأس سدر</title>
+
+<style>
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Tahoma,Arial,sans-serif;
+background:#f6f5f0;
+color:#173f37
+}
+button,input{font-family:inherit}
+button{cursor:pointer}
+header{
+background:#fff;
+position:sticky;
+top:0;
+z-index:100;
+box-shadow:0 2px 14px #00000010
+}
+.nav{
+max-width:1100px;
+margin:auto;
+height:72px;
+padding:0 18px;
+display:flex;
+align-items:center;
+justify-content:space-between
+}
+.logo{
+font-weight:900;
+font-size:21px
+}
+.logo span{color:#d69b36}
+.nav button{
+border:0;
+background:#173f37;
+color:white;
+padding:10px 16px;
+border-radius:12px
+}
+.hero{
+background:linear-gradient(135deg,#173f37,#27685a);
+color:white;
+padding:55px 20px 80px
+}
+.heroInner{
+max-width:1100px;
+margin:auto
+}
+.hero h1{
+font-size:38px;
+margin:0 0 12px
+}
+.hero p{
+margin:0;
+font-size:17px;
+line-height:1.9;
+color:#e9f3f0
+}
+.container{
+max-width:1100px;
+margin:auto;
+padding:32px 18px 70px
+}
+.sectionHead{
+display:flex;
+align-items:end;
+justify-content:space-between;
+gap:15px;
+margin-bottom:20px
+}
+.sectionHead h2{margin:0;font-size:27px}
+.sectionHead p{margin:5px 0 0;color:#71807b}
+.grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:20px
+}
+.card{
+background:white;
+border-radius:22px;
+overflow:hidden;
+box-shadow:0 8px 30px #173f3712;
+transition:.2s
+}
+.card:hover{transform:translateY(-3px)}
+.cardImg{
+height:235px;
+background:linear-gradient(135deg,#2e7666,#173f37);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:72px;
+position:relative
+}
+.cardImg img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+.badge{
+position:absolute;
+top:14px;
+right:14px;
+background:#fff;
+color:#173f37;
+padding:7px 11px;
+border-radius:30px;
+font-size:12px;
+font-weight:bold
+}
+.cardBody{padding:19px}
+.cardBody h3{margin:0 0 9px;font-size:22px}
+.cardBody p{
+color:#687772;
+line-height:1.8;
+margin:0 0 15px
+}
+.meta{
+display:flex;
+flex-wrap:wrap;
+gap:7px;
+margin:12px 0
+}
+.pill{
+background:#eef5f2;
+padding:7px 10px;
+border-radius:30px;
+font-size:12px
+}
+.btn{
+border:0;
+background:#173f37;
+color:white;
+padding:12px 17px;
+border-radius:12px;
+font-weight:bold
+}
+.btn.gold{background:#d69b36}
+.btn.full{width:100%}
+.back{
+border:0;
+background:#e9efec;
+color:#173f37;
+padding:10px 14px;
+border-radius:11px;
+margin-bottom:18px
+}
+.villageHero{
+height:320px;
+border-radius:25px;
+overflow:hidden;
+background:linear-gradient(135deg,#173f37,#378474);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:90px;
+position:relative;
+color:white
+}
+.villageHero img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+.villageHeroOverlay{
+position:absolute;
+inset:0;
+background:linear-gradient(transparent,#0009)
+}
+.villageHeroText{
+position:absolute;
+bottom:25px;
+right:25px;
+left:25px;
+z-index:2
+}
+.villageHeroText h1{margin:0;font-size:34px}
+.villageHeroText p{margin:7px 0 0;color:#eee}
+.info{
+background:white;
+border-radius:22px;
+padding:22px;
+margin-top:20px;
+box-shadow:0 8px 30px #173f3710
+}
+.info h2,.info h3{margin-top:0}
+.info p{line-height:2;color:#5f6e69}
+.avail{
+margin:22px 0;
+background:linear-gradient(135deg,#173f37,#27685a);
+color:white;
+border-radius:22px;
+padding:20px
+}
+.avail h3{margin:0 0 5px}
+.avail p{margin:0 0 15px;color:#d9e9e5}
+.fields{
+display:grid;
+grid-template-columns:1fr .6fr auto;
+gap:9px
+}
+.fields input{
+height:48px;
+border:0;
+border-radius:12px;
+padding:0 12px;
+font-size:15px
+}
+.gallery{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:10px;
+margin:14px 0 28px
+}
+.media{
+height:160px;
+border-radius:16px;
+background:#e5ece9;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:45px;
+overflow:hidden
+}
+.media img{
+width:100%;
+height:100%;
+object-fit:cover
+}
+.units{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:17px
+}
+.unit{
+background:white;
+border-radius:19px;
+overflow:hidden;
+box-shadow:0 7px 25px #173f3710
+}
+.unitImg{
+height:180px;
+background:linear-gradient(135deg,#dfeae6,#b7d2ca);
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:55px
+}
+.unitBody{padding:16px}
+.unitBody h3{margin:0 0 7px}
+.unitBody p{margin:5px 0;color:#6d7b77;line-height:1.6}
+.price{
+font-size:19px;
+font-weight:900;
+color:#d28e1f;
+margin:12px 0
+}
+.detailGrid{
+display:grid;
+grid-template-columns:1.1fr .9fr;
+gap:22px
+}
+.detailPhoto{
+background:linear-gradient(135deg,#dfeae6,#a9cec3);
+height:420px;
+border-radius:25px;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:90px
+}
+.booking{
+background:white;
+padding:23px;
+border-radius:22px;
+box-shadow:0 8px 30px #173f3710
+}
+.booking h2{margin-top:0}
+.booking input{
+width:100%;
+height:48px;
+border:1px solid #d8dfdc;
+border-radius:11px;
+margin-bottom:10px;
+padding:0 12px
+}
+.notice{
+background:#fff5df;
+color:#77571e;
+padding:12px;
+border-radius:11px;
+font-size:13px;
+line-height:1.7
+}
+.empty{
+background:white;
+padding:25px;
+border-radius:16px;
+text-align:center;
+color:#66736f
+}
+footer{
+background:#173f37;
+color:white;
+text-align:center;
+padding:30px 15px
+}
+footer p{margin:5px}
+.hidden{display:none!important}
+
+@media(max-width:750px){
+.hero{padding:42px 18px 62px}
+.hero h1{font-size:29px}
+.grid{grid-template-columns:1fr}
+.units{grid-template-columns:1fr}
+.gallery{grid-template-columns:repeat(2,1fr)}
+.fields{grid-template-columns:1fr 1fr}
+.fields .btn{grid-column:1/-1}
+.detailGrid{grid-template-columns:1fr}
+.detailPhoto{height:280px}
+.villageHero{height:260px}
+.cardImg{height:210px}
+.sectionHead{align-items:start;flex-direction:column}
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="nav">
+<div class="logo">🌊 <span>مصيفك</span> في رأس سدر</div>
+<button onclick="home()">الرئيسية</button>
+</div>
+</header>
+
+<div id="homePage">
+
+<section class="hero">
+<div class="heroInner">
+<h1>اختار مصيفك في رأس سدر 🌊</h1>
+<p>
+اكتشف القرى والشاليهات والفيلات المتاحة في رأس سدر،
+وشاهد تفاصيل كل قرية والوحدات الموجودة بها.
+</p>
+</div>
+</section>
+
+<main class="container">
+<div class="sectionHead">
+<div>
+<h2>اختار القرية</h2>
+<p>اضغط على القرية لمشاهدة التفاصيل والشاليهات.</p>
+</div>
+</div>
+
+<div class="grid">
+
+<div class="card">
+<div class="cardImg">
+🏖️
+<div class="badge">داخل مدينة رأس سدر</div>
+</div>
+<div class="cardBody">
+<h3>قرية فينيسيا</h3>
+<p>
+قرية صغيرة وهادئة على البحر، مناسبة للعائلات
+وتتميز بقرب جميع الشاليهات من البحر وحمامات السباحة.
+</p>
+
+<div class="meta">
+<span class="pill">🏊 3 حمامات سباحة</span>
+<span class="pill">🏖️ شاطئ رملي</span>
+<span class="pill">🌊 بدون مد وجزر</span>
+<span class="pill">👨‍👩‍👧‍👦 للعائلات</span>
+</div>
+
+<button class="btn full" onclick="openVillage('venice')">
+عرض القرية والشاليهات
+</button>
+</div>
+</div>
+
+<div class="card">
+<div class="cardImg">
+🌴
+<div class="badge">فيلات وشاليهات</div>
+</div>
+<div class="cardBody">
+<h3>White Bay</h3>
+<p>
+قرية داخل رأس سدر تضم حمامات سباحة وأكوا بارك
+ومناطق ترفيهية وخدمات متعددة.
+</p>
+
+<div class="meta">
+<span class="pill">🏊 5 حمامات</span>
+<span class="pill">💦 Aqua Park</span>
+<span class="pill">☕ كافيهات</span>
+<span class="pill">🛒 سوبر ماركت</span>
+</div>
+
+<button class="btn full" onclick="openVillage('whitebay')">
+عرض القرية والوحدات
+</button>
+</div>
+</div>
+
+</div>
+</main>
+</div>
+
+
+<div id="villagePage" class="hidden">
+<main class="container">
+
+<button class="back" onclick="home()">← الرجوع للقرى</button>
+
+<div class="villageHero">
+<span id="villageEmoji">🏖️</span>
+<div class="villageHeroOverlay"></div>
+
+<div class="villageHeroText">
+<h1 id="villageName"></h1>
+<p>رأس سدر – جنوب سيناء</p>
+</div>
+</div>
+
+<div class="info">
+<h2>عن القرية</h2>
+<p id="villageDescription"></p>
+
+<div id="villageFeatures" class="meta"></div>
+</div>
+
+
+<div class="avail">
+
+<h3>📅 الشاليهات المتاحة</h3>
+<p>حدد تاريخ الوصول وعدد الأيام لعرض الوحدات المتاحة داخل القرية.</p>
+
+<div class="fields">
+
+<input type="date" id="arrival">
+
+<input type="number"
+id="days"
+min="1"
+value="2"
+placeholder="عدد الأيام">
+
+<button class="btn gold" onclick="checkAvailability()">
+عرض المتاح
+</button>
+
+</div>
+</div>
+
+
+<div class="info">
+
+<h3>صور وفيديوهات القرية</h3>
+
+<div class="gallery">
+
+<div class="media">🌊</div>
+<div class="media">🏖️</div>
+<div class="media">🏊</div>
+
+</div>
+
+<div class="sectionHead">
+<div>
+<h2>الوحدات داخل القرية</h2>
+<p id="unitCount"></p>
+</div>
+</div>
+
+<div id="unitsContainer" class="units"></div>
+
+</div>
+
+</main>
+</div>
+
+
+<div id="unitPage" class="hidden">
+
+<main class="container">
+
+<button class="back" onclick="backVillage()">
+← الرجوع للقرية
+</button>
+
+<div class="detailGrid">
+
+<div>
+<div class="detailPhoto">🏡</div>
+
+<div class="gallery">
+<div class="media">🛏️</div>
+<div class="media">🌊</div>
+<div class="media">🏊</div>
+</div>
+</div>
+
+
+<div class="booking">
+
+<h1 id="unitName"></h1>
+
+<p id="unitVillage"></p>
+
+<div id="unitFeatures" class="meta"></div>
+
+<div id="unitPrice" class="price"></div>
+
+<hr style="border:0;border-top:1px solid #eee;margin:20px 0">
+
+<h2>طلب حجز</h2>
+
+<input type="text" placeholder="الاسم">
+
+<input type="tel" placeholder="رقم الهاتف">
+
+<input type="date">
+
+<input type="number"
+min="1"
+value="2"
+placeholder="عدد الأيام">
+
+<button class="btn full" onclick="bookingRequest()">
+إرسال طلب الحجز
+</button>
+
+<br><br>
+
+<div class="notice">
+إرسال الطلب لا يعني تأكيد الحجز.
+سيتم التواصل مع العميل لتأكيد التوفر والحجز.
+</div>
+
+</div>
+</div>
+
+</main>
+</div>
+
+
+<footer>
+<p><strong>مصيفك في رأس سدر 🌊</strong></p>
+<p>شاليهات وفيلات للإيجار في رأس سدر</p>
+</footer>
+
+
+<script>
+
+const villages={
+
+venice:{
+name:"قرية فينيسيا",
+emoji:"🏖️",
+description:
+"قرية فينيسيا من القرى الصغيرة والهادئة في رأس سدر. القرية بالكامل قريبة من البحر، وتضم ثلاث مراحل بكل مرحلة حمام سباحة. تتميز بالشاطئ الرملي وعدم وجود مد وجزر، كما أنها داخل مدينة رأس سدر وقريبة من السوق التجاري والكورنيش والخدمات.",
+features:[
+"3 حمامات سباحة",
+"شاطئ رملي",
+"بدون مد وجزر",
+"قريبة من السوق والكورنيش",
+"خصوصية وهدوء",
+"لا يوجد Day Use"
+],
+units:[
+
+{
+name:"شاليه 1312",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"تكييف",
+"الدور الأول",
+"روف",
+"إطلالة بحر وبول",
+"واي فاي",
+"مطبخ مجهز"
+]
+},
+
+{
+name:"شاليه 2412",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"تكييف",
+"الدور الأول",
+"مباشر على البحر",
+"فرش جديد",
+"مطبخ مجهز"
+]
+},
+
+{
+name:"شاليه 912",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"تكييف",
+"الدور الأول",
+"إطلالة بحر وبول"
+]
+},
+
+{
+name:"شاليه 1812",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"تكييف",
+"الدور الأول",
+"روف",
+"إطلالة بحر وبول"
+]
+},
+
+{
+name:"شاليه 1802",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"أرضي بحديقة",
+"تكييف",
+"إطلالة بحر وبول"
+]
+},
+
+{
+name:"فيلا 2002",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"فيلا دورين",
+"حديقة + روف",
+"3 غرف مكيفة",
+"3 حمامات",
+"2 ريسبشن",
+"مطبخ كبير",
+"مباشر على البحر"
+]
+},
+
+{
+name:"شاليه 1602",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"أرضي بحديقة",
+"تكييف",
+"مباشر على البحر"
+]
+},
+
+{
+name:"شاليه 1701",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"أرضي بحديقة",
+"تكييف",
+"إطلالة بحر وبول"
+]
+},
+
+{
+name:"شاليه 1302",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"أرضي بحديقة",
+"تكييف",
+"إطلالة بحر وبول"
+]
+},
+
+{
+name:"شاليه 1502",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"أرضي بحديقة",
+"مباشر على البحر",
+"فرش جديد",
+"تكييف"
+]
+},
+
+{
+name:"شاليه 1702",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"أرضي بحديقة",
+"تكييف",
+"إطلالة بحر وبول"
+]
+},
+
+{
+name:"شاليه 1401",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"2 غرفة نوم + ريسبشن",
+"أرضي بحديقة",
+"تكييف",
+"إطلالة بحر وبول"
+]
+}
+
+]
+},
+
+
+whitebay:{
+name:"White Bay",
+emoji:"🌴",
+description:
+"White Bay من قرى رأس سدر المميزة داخل المدينة، وتضم حمامات سباحة وأكوا بارك ومارينا وكافيهات وسوبر ماركت ومنطقة للأطفال، مع وحدات قريبة ومباشرة على البحر.",
+features:[
+"5 حمامات سباحة",
+"Aqua Park",
+"Kids Area",
+"مارينا",
+"كافيهات",
+"سوبر ماركت",
+"قريبة من السوق"
+],
+units:[
+
+{
+name:"فيلا White Bay",
+price:"السعر حسب تاريخ الحجز",
+features:[
+"مباشرة على البحر",
+"دورين",
+"حديقة + روف",
+"5 غرف",
+"4 حمامات",
+"2 غرفة Master",
+"2 ريسبشن",
+"تكييف كامل",
+"Wi-Fi",
+"مطبخ مجهز"
+]
+}
+
+]
+}
+
+};
+
+
+let activeVillage=null;
+
+
+function showPage(page){
+
+document.getElementById("homePage").classList.add("hidden");
+document.getElementById("villagePage").classList.add("hidden");
+document.getElementById("unitPage").classList.add("hidden");
+
+document.getElementById(page).classList.remove("hidden");
+
+window.scrollTo(0,0);
+
+}
+
+
+function home(){
+
+activeVillage=null;
+
+showPage("homePage");
+
+}
+
+
+function openVillage(id){
+
+activeVillage=id;
+
+const village=villages[id];
+
+document.getElementById("villageName").textContent=village.name;
+
+document.getElementById("villageEmoji").textContent=village.emoji;
+
+document.getElementById("villageDescription").textContent=
+village.description;
+
+
+document.getElementById("villageFeatures").innerHTML=
+village.features.map(feature=>
+`<span class="pill">✓ ${feature}</span>`
+).join("");
+
+
+renderUnits(village.units);
+
+showPage("villagePage");
+
+}
+
+
+function renderUnits(units){
+
+const container=document.getElementById("unitsContainer");
+
+document.getElementById("unitCount").textContent=
+units.length+" وحدة متاحة للعرض";
+
+
+container.innerHTML=units.map((unit,index)=>`
+
+<div class="unit">
+
+<div class="unitImg">🏡</div>
+
+<div class="unitBody">
+
+<h3>${unit.name}</h3>
+
+<p>${unit.features.slice(0,3).join(" • ")}</p>
+
+<div class="price">${unit.price}</div>
+
+<button class="btn full"
+onclick="openUnit(${index})">
+عرض التفاصيل
+</button>
+
+</div>
+
+</div>
+
+`).join("");
+
+}
+
+
+function checkAvailability(){
+
+const arrival=
+document.getElementById("arrival").value;
+
+const days=
+document.getElementById("days").value;
+
+
+if(!arrival){
+
+alert("من فضلك اختر تاريخ الوصول أولاً");
+
+return;
+
+}
+
+
+alert(
+"تم اختيار الوصول: "+arrival+
+" لمدة "+days+
+" أيام.\n\n"+
+"في المرحلة القادمة سيتم ربط هذه الخاصية بتقويم الحجوزات الحقيقي لعرض الوحدات المتاحة فقط."
+);
+
+}
+
+
+function openUnit(index){
+
+const village=villages[activeVillage];
+
+const unit=village.units[index];
+
+
+document.getElementById("unitName").textContent=
+unit.name;
+
+
+document.getElementById("unitVillage").textContent=
+village.name+" – رأس سدر";
+
+
+document.getElementById("unitPrice").textContent=
+unit.price;
+
+
+document.getElementById("unitFeatures").innerHTML=
+unit.features.map(feature=>
+`<span class="pill">✓ ${feature}</span>`
+).join("");
+
+
+showPage("unitPage");
+
+}
+
+
+function backVillage(){
+
+if(activeVillage){
+
+openVillage(activeVillage);
+
+}else{
+
+home();
+
+}
+
+}
+
+
+function bookingRequest(){
+
+alert(
+"تم تسجيل طلب الحجز كتجربة ✅\n\n"+
+"عند ربط الموقع بقاعدة البيانات، سيظهر الطلب داخل لوحة الإدارة ويمكن تأكيده أو إلغاؤه."
+);
+
+}
+
+
+home();
+
+</script>
+
+</body>
+</html>
