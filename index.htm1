@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>مصيفك في رأس سدر</title>
+<style>
+body{
+  margin:0;
+  font-family:Arial,Tahoma,sans-serif;
+  background:#f7f4ee;
+  color:#24302d;
+}
+main{
+  min-height:100vh;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:25px;
+}
+.card{
+  background:white;
+  max-width:500px;
+  padding:40px 25px;
+  border-radius:25px;
+  text-align:center;
+  box-shadow:0 10px 35px rgba(0,0,0,.1);
+}
+h1{font-size:32px}
+p{font-size:18px;line-height:1.8}
+.ok{
+  background:#173f37;
+  color:white;
+  padding:18px;
+  border-radius:15px;
+  font-weight:bold;
+  font-size:18px;
+}
+</style>
+</head>
+<body>
+<main>
+<div class="card">
+  <h1>🌊 مصيفك في رأس سدر</h1>
+  <p>دي صفحة اختبار للتأكد إن الموقع شغال على GitHub Pages.</p>
+  <div class="ok">✅ الموقع اشتغل بنجاح</div>
+</div>
+</main>
+</body>
+</html>
